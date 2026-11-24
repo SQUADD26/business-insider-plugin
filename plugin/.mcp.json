@@ -1,0 +1,6 @@
+{
+  "mcpServers": {
+    "business-insider": { "type": "http", "url": "https://businessinsider.squaddcrm.com/mcp" },
+    "business-insider-dev": { "type": "http", "url": "https://businessinsider-dev.squaddcrm.com/mcp" }
+  }
+}

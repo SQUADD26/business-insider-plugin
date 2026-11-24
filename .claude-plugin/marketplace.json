@@ -1,0 +1,12 @@
+{
+  "name": "squadd",
+  "owner": { "name": "Squadd" },
+  "metadata": { "description": "Plugin di Squadd per Claude Code" },
+  "plugins": [
+    {
+      "name": "business-insider",
+      "source": "./plugin",
+      "description": "Lavora negli archivi dei clienti di Business Insider: carica PDF, Word e trascrizioni di Fathom, cerca, leggi, crea e sposta, chiedi alla chat."
+    }
+  ]
+}
