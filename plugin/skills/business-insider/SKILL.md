@@ -1,6 +1,6 @@
 ---
 name: business-insider
-description: Usa quando lavori su Business Insider per un cliente Squadd con l'MCP business-insider - caricare un PDF, Word o testo dal computer, salvare la trascrizione di una call di Fathom, cercare o leggere l'archivio di un'organizzazione, creare o spostare cartelle e documenti, fare una domanda alla chat del cliente.
+description: Usa quando lavori su Business Insider per un cliente Squadd con l'MCP business-insider - caricare un PDF, Word o testo dal computer, salvare la trascrizione di una call di Fathom, cercare, leggere, modificare, cestinare o ripristinare l'archivio di un'organizzazione, versioni dei documenti, membri e inviti, crediti, conversazioni della chat, webhook.
 ---
 
 # Business Insider per i tecnici Squadd
@@ -29,13 +29,17 @@ Più file: un giro per file. Se `conferma_file` dice che il file non è arrivato
 
 Non riassumere al posto della trascrizione: salvala intera, è la fonte che la chat del cliente userà.
 
-## Cercare, leggere, ordinare
+## Tutti gli strumenti
 
-- `archivio`: cartelle, documenti, mappe e file (filtri `section`, `type`, `parentId`).
-- `cerca`: parole in nomi e testo di documenti, mappe e file letti, con l'estratto.
-- `leggi_voce`, `leggi_contenuto` (i blocchi di un documento), `stato_file`, `scarica_file` (link firmato).
-- `crea_voce` (una cartella: `type: "folder"`), `crea_documento` (da Markdown), `sposta` (anche per rinominare).
-- `chiedi` con `wait: true`: una domanda alla chat dell'organizzazione, che risponde con l'archivio del cliente. Scala il credito del cliente.
+Uno strumento per ogni operazione dell'API v1 (stessi argomenti, più `org`), salvo la specifica OpenAPI e il caricamento di un file nel corpo (qui lo fanno `carica_file` e `conferma_file`). Lo staff agisce come Proprietario dell'organizzazione, con tutti i permessi. Gli strumenti segnati ⚠ cancellano o sovrascrivono: prima chiedi conferma all'utente.
+
+- Organizzazione: `organizzazioni`, `chi_sono`, `membri`, `cambia_ruolo`, `togli_membro` ⚠, `inviti`, `invita`, `revoca_invito` ⚠, `crediti`, `movimenti_crediti`.
+- Archivio: `archivio` (filtri `section`, `type`, `parentId`), `cerca` (parole e significato, con l'estratto), `leggi_voce`, `crea_voce` (cartella: `type: "folder"`), `crea_documento` (da Markdown), `crea_mappa`, `crea_trascrizione`, `sposta` (anche per rinominare), `duplica`.
+- Cestino: `cestina` ⚠, `cestino`, `ripristina`, `elimina` ⚠ (per sempre, solo dal cestino).
+- Contenuto e versioni: `leggi_contenuto` (i blocchi di un documento), `sostituisci_contenuto` ⚠, `sostituisci_blocco` ⚠, `versioni`, `leggi_versione`, `ripristina_versione` ⚠.
+- File: `carica_file`, `conferma_file`, `stato_file`, `scarica_file` (link firmato), `rileggi_file` (una lettura fallita).
+- Chat: `chiedi` con `wait: true` (risponde con l'archivio del cliente e scala il suo credito), `leggi_risposta`, `conversazioni`, `leggi_conversazione`, `cestina_conversazione` ⚠.
+- Webhook: `webhook`, `crea_webhook`, `leggi_webhook`, `modifica_webhook`, `elimina_webhook` ⚠, `rinnova_segreto_webhook` ⚠, `prova_webhook`, `consegne_webhook`, `rimanda_consegna`, `eventi`, `tipi_evento`.
 
 ## Dove non c'è la shell
 
